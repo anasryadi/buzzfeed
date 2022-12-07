@@ -6,14 +6,16 @@ dotenv.config()
 
 const PORT = 8000
 const app = express()
+const GETURL = process.env.URL
+const GETTOKEN = process.env.TOKEN
 
 app.get("/quiz/item", async(req: Request, res: Response) => {
     try {
         // @ts-ignore
-        const response: AxiosResponse = await axios.get(process.env.URL,
+        const response: AxiosResponse = await axios.get(GETURL,
         {
             headers: {
-                "X-Cassandra-Token": process.env.TOKEN,
+                "X-Cassandra-Token": GETTOKEN,
                 "accept" : "application/json"
             }
         }
