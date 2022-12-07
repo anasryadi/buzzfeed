@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Starting from the end */
+
+.question-block p {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.question-block a {
+    color: rgb(213, 213, 213);
+    text-decoration: none;
+}

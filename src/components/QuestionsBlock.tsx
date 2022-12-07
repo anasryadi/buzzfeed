@@ -2,7 +2,7 @@ import react from "react";
 import { Content, Question } from "../../interfaces";
 import QuestionBlock from "./QuestionBlock";
 
-const QuestionsBlock = ({ quizItem }: { quizItem: Content }) => {
+const QuestionsBlock = ({ quizItem, setChosenAnswerItems, unansweredQuestionIds, setUnansweredQuestionIds }: { quizItem: Content, setChosenAnswerItems: Function, unansweredQuestionIds: number[] | undefined, setUnansweredQuestionIds: Function }) => {
   console.log(quizItem);
   return (
     <>
@@ -11,7 +11,7 @@ const QuestionsBlock = ({ quizItem }: { quizItem: Content }) => {
       </h2>
       <div className="questions-container">
         {quizItem?.questions.map((question: Question, _index: number) => (
-          <QuestionBlock key={_index} question={question} />
+          <QuestionBlock key={_index} quizItemId={quizItem.id} question={question} setChosenAnswerItems={setChosenAnswerItems} unansweredQuestionIds={unansweredQuestionIds} setUnansweredQuestionIds={setUnansweredQuestionIds} />
         ))}
       </div>
     </>

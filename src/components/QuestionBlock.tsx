@@ -1,8 +1,11 @@
 import react from "react";
 import { Question } from "../../interfaces";
 
-const QuestionBlock = ({ question }: { question: Question }) => {
-  const handleClick = () => {};
+const QuestionBlock = ({ quizItemId,question, setChosenAnswerItems, unansweredQuestionIds, setUnansweredQuestionIds }: { quizItemId: number, question: Question, setChosenAnswerItems: Function, unansweredQuestionIds: number[] | undefined, setUnansweredQuestionIds: Function }) => {
+  const handleClick = () => {
+    setChosenAnswerItems((prevState: string[]) => [...prevState, question.text])
+    setUnansweredQuestionIds(unansweredQuestionIds?.filter((id: number) => id !== quizItemId))
+  };
 
   return (
     <button className="question-block" onClick={handleClick}>
